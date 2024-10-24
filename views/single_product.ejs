@@ -18,9 +18,7 @@
         <p>Details: <%= product.product_detail %></p>
         <form action="/add-to-cart" method="post">
             <input type="hidden" name="productID" value="<%= product.ProductID %>">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit">Add to Cart</button>
+            <button type="submit"><i class="fas fa-shopping-cart"></i></button>
         </form>
     </div>
 

@@ -42,16 +42,24 @@ app.get('/', (req, res) => {
     });
 });
 
-// Route สำหรับหน้าแสดงสินค้าทั้งหมด (products.ejs)
+// Route สำหรับหน้าแสดงสินค้าทั้งหมด (products.ejs) รวมถึงการค้นหาและจัดเรียง
 app.get('/products', (req, res) => {
+    // ดึงค่าการค้นหาและการจัดเรียงจาก query string
     let search = req.query.search || '';
-    let sortBy = req.query.sort || 'ProductName';
+    let sortBy = req.query.sort || 'ProductName ASC';  // Default: A-Z
+
+    // คำสั่ง SQL สำหรับการค้นหาและเรียงลำดับสินค้า
     let query = `SELECT * FROM products WHERE ProductName LIKE ? ORDER BY ${sortBy}`;
+
+    // ค้นหาข้อมูลจากฐานข้อมูลโดยใช้เงื่อนไขการค้นหาและจัดเรียง
     db.query(query, [`%${search}%`], (err, results) => {
         if (err) throw err;
-        res.render('products', { products: results });
+        // ส่งข้อมูลสินค้า คำค้นหา และการจัดเรียงไปที่หน้า products.ejs
+        res.render('products', { products: results, search: search, sort: sortBy });
     });
 });
+
+
 
 // Route สำหรับหน้าแสดงรายละเอียดสินค้า (single_product.ejs)
 app.get('/product/:id', (req, res) => {

@@ -1,21 +1,23 @@
 <header>
-    <h1>SecondHandMarket</h1>
+    <a href="/"><h1>SecondHandMarket</h1></a>
     <nav>
         <ul>
+            
             <li>
-                <a href="/">
-                    <i class="fas fa-home"></i>
-                    <span class="sr-only">Home</span>
-                </a>
-            </li>
-            <li>
+                <!-- Form การค้นหาสินค้า -->
                 <form action="/products" method="get" class="search-bar">
-                    <input type="text" name="search" placeholder="Search product..." />
+                    <input type="text" name="search" placeholder="Search product..." value="<%= typeof search !== 'undefined' ? search : '' %>"/>
                     <button type="submit">
                         <i class="fas fa-search"></i>
                         <span class="sr-only">Search</span>
                     </button>
                 </form>
+            </li>
+            <li>
+                <a href="/">
+                    <i class="fas fa-home"></i>
+                    <span class="sr-only">Home</span>
+                </a>
             </li>
             <li>
                 <a href="/cart">

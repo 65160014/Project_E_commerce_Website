@@ -21,7 +21,7 @@
                 <p><%= product.product_price %> THB</p>
                 <form action="/add-to-cart" method="post">
                     <input type="hidden" name="productID" value="<%= product.ProductID %>">
-                    <button type="submit">Add to Cart</button>
+                    <button type="submit"><i class="fas fa-shopping-cart"></i></button>
                 </form>
                 <a href="/product/<%= product.ProductID %>">View Details</a>
             </div>
