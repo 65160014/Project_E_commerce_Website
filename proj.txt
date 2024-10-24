@@ -1,0 +1,79 @@
+เขียนเว็บขายสินค้าด้วย Node JS
+ที่ใช้ ejs,express,body-parser,express-session
+โดยที่มี
+-index.js 
+-header.ejs
+-cart.ejs 
+-index.ejs
+-producs.ejs
+-single_product.ejs
+-place_order.ejs
+-completetransaction.ejs
+
+
+header.ejs
+สิ่งที่ต้องมีในheader.ejs
+ชื่อเว็บไซต์ SecondHandMarket
+มีปุ่ม home ที่รีเฟรชกลับไปที่หน้า index.ejs
+searchbar ค้นหาสินค้าจากชื่อ ที่เสิร์ชแล้วจะแสดงหน้่า products .ejs
+cart กดแล้วจะไปหน้า cart.ejs
+
+index.ejs
+สิ่งที่ต้องมีในindex.ejs
+แสดงหน้าหลักที่มีสินค้าทั้งหมดอยู่ (ในแต่บะสินค้าจะมีปุ่มสัญลักษณ์จะกร้าสินค้าที่กดแล้วจะเพิ่มลงตะกร้าสินค้า)
+
+producs.ejs  
+สิ่งที่ต้องมีในproducs.ejs
+แสดงสินค้าที่ตรงกับคำค้นหา พร้อมทั้งมี sort by จากชื่อ และ ราคา
+
+single_product.ejs
+สิ่งที่ต้องมีในsingle_product.ejs
+แสดงชื่อ ราคา รายละเอียดสินค้าที่กดเลือกเข้ามาดูทั้งจากหน้า index และ producs และมีปุ่มเพิ่มเข้าตะกร้า
+
+cart.ejs
+สิ่งที่ต้องมีในcart.ejs
+แสดงสินค้าต่างๆที่อยู่ในตะกร้า สามารถลบสินค้าออกจากตะกร้าได้และคิดคำนวณราคาของสินค้าในตระกร้าทั้งหมดไว้ในsession และแสดงในหน้า cart ด้วย
+มีปุ่มชำระเงิน ที่กดแล้วจะไปหน้าplace_order.els
+
+place_order.ejs
+สิ่งที่ต้องมีในplace_order.ejs
+มีฟอร์มรับข้อมูลที่อยู่จัดส่งของผู้สั่งซื้อ แสดงรายการสินค้าทั้งหมดที่อยู่ในตะกร้าและราคาทั้งหมดด้วย ฟอร์มเลือกช่องทางการชำระเงิน
+มีปุ่มสั่งสินค้า ถ้ากดแล้วจะบันทึกข้อมูลลง databaseและไปหน้าcompletetransaction.ejs
+
+completetransaction.ejs
+สิ่งที่ต้องมีในcompletetransaction.ejs
+แสดงหน้าคำสั่งซื้อของเรา (OrderID,ช่องทางการชำระเงิน,แสดงราคารวม)
+มีปุ่มกลับไปหน้าหลักและชำระเงินทันที (ในกรณีที่เก็บเงินปลายทางจะมีปุ่มกลับหน้าหลักแค่ปุ่มเดียว)
+
+
+
+database
+#products(เก็บข้อมูลของสินค้าทั้งหมด)
+    -ProductID (AI)
+    -ProductName
+    -product_price
+    -product_image
+    -product_detail
+    -status(In stock – Out of stock)
+
+#order(เก็บข้อมูลที่อยู่ของผู้ซื้อ)
+    -OrderID (AI)
+    -totalcost
+    -name
+    -email
+    -city
+    -address
+    -phone
+    -order_date
+
+#order-item(เก็บข้อมูลorder ว่ามีรายการสินค้าอะไรบ้าง)
+    -ItemID (AI)
+    -OrderID
+    -ProductID
+    -quantity
+    -order_date
+
+#payments(สถานะการชำระเงิน อ้างอิงจาก OrderID)
+    -PaymentID (AI)
+    -OrderID
+    -status

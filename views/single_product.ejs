@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/path/to/your/custom.css">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <h2><%= product.ProductName %></h2>
+    <div class="product-detail">
+        <img src="<%= product.product_image %>" alt="<%= product.ProductName %>">
+        <p>Price: <%= product.product_price %> THB</p>
+        <p>Details: <%= product.product_detail %></p>
+        <form action="/add-to-cart" method="post">
+            <input type="hidden" name="productID" value="<%= product.ProductID %>">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit">Add to Cart</button>
+        </form>
+    </div>
+
+</body>
+</html>
