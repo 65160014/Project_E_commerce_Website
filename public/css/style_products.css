@@ -1,0 +1,146 @@
+
+/* Style for products.ejs */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 0;
+}
+
+.product-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    padding: 20px;
+    text-align: center;
+    width: 220px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.product-item img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.product-item h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin: 10px 0;
+}
+
+.product-item p {
+    font-size: 1.1em;
+    color: #666;
+}
+
+.product-item p.price {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-top: 5px;
+}
+
+.product-item form {
+    display: flex;                 /* Use flexbox */
+    justify-content: center;       /* Center horizontally */
+    align-items: center;           /* Center vertically */
+    margin-top: 10px;             /* Space between price and button */
+}
+
+.product-item button {
+    display: flex;                 /* Make button a flex container */
+    align-items: center;           /* Center icon vertically */
+    justify-content: center;       /* Center icon horizontally */
+    width: 40px;                  /* Set a fixed width for the button */
+    height: 40px;                 /* Set a fixed height for the button */
+    padding: 0;                   /* Remove padding */
+}
+
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #3498db;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#sort form{
+    display: flex;
+    margin-left: 50px;
+}
+
+
+label {
+    font-size: 1.1em;
+    margin-right: 10px;
+    color: #f36b10;
+}
+
+select {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+select:hover {
+    border-color: #ff8534; /* Change border color to orange on hover */
+    box-shadow: 0 0 5px rgba(255, 149, 11, 0.534); /* Optional: Add shadow effect on hover */
+    outline: none; /* Remove default outline on hover */
+}
+
+select:focus {
+    border-color: #ff8534; /* Keep focus color the same */
+    box-shadow: 0 0 5px rgba(255, 149, 11, 0.534);
+    outline: none; /* Remove default outline on focus */
+}
+
+option {
+    padding: 10px;
+}

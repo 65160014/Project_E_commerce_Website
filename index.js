@@ -81,8 +81,25 @@ app.post('/add-to-cart', (req, res) => {
 
     // เพิ่มสินค้าลงตะกร้า
     req.session.cart.push({ productID, quantity });
+    res.redirect('/');
+});
+
+// Route สำหรับการลบสินค้าจากตะกร้า
+app.post('/remove-from-cart', (req, res) => {
+    const productID = req.body.productID;
+
+    if (!req.session.cart) {
+        req.session.cart = [];
+    }
+
+    // Filter out the item to be removed
+    req.session.cart = req.session.cart.filter(item => item.productID != productID);
+
+    // Redirect back to the cart page
     res.redirect('/cart');
 });
+
+
 
 // Route สำหรับหน้าตะกร้าสินค้า (cart.ejs)
 app.get('/cart', (req, res) => {

@@ -1,0 +1,130 @@
+/* Style for cart.ejs */
+
+/* พื้นหลังและแบบอักษรทั่วไป */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* หัวข้อ */
+h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: #ff5722;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+/* กล่องรายการสินค้า */
+.cart-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* รายการสินค้าแต่ละชิ้น */
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+/* รูปภาพสินค้า */
+.cart-item img {
+    width: 90px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+/* ชื่อและราคาสินค้า */
+.cart-item h3 {
+    font-size: 1.1em;
+    color: #333;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.cart-item p {
+    font-size: 1em;
+    color: #888;
+    margin: 0 10px;
+}
+
+/* ปุ่มลบสินค้า */
+button {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 0.9em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e64a19;
+}
+
+/* ส่วน Total และปุ่ม Checkout */
+.total-checkout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* จัดระหว่าง Total และ ปุ่ม Checkout */
+    padding: 20px;
+    background-color: #fef8f5;
+    border-radius: 8px;
+    margin: 25px auto; /* ให้อยู่ตรงกลาง */
+    max-width: 800px; /* จำกัดความกว้างของส่วนนี้ */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.total-checkout h3 {
+    color: #333;
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.total-checkout a button {
+    background-color: #ff5722;
+    padding: 12px 20px;
+    font-size: 1em;
+    color: #fff;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.total-checkout a button:hover {
+    background-color: #ff7043;
+}
+
+/* จัดให้อยู่กึ่งกลางหน้าจอ */
+.cart-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cart-list {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
