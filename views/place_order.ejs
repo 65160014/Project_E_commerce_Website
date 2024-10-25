@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Place Order</title>
+    <link rel="stylesheet" href="/css/style_header.css">
+    <link rel="stylesheet" href="/css/style_place_order.css">
+    
 </head>
 <body>
     <%- include('partials/header') %>
@@ -19,7 +22,7 @@
 
     <h3>Total: <%= total %> THB</h3>
 
-    <form action="/complete_order" method="post">
+    <form action="/complete_order" method="post" class="delivery-form">
         <label for="name">Full Name:</label>
         <input type="text" name="name" required><br>
 
@@ -41,7 +44,7 @@
             <option value="CreditCard">Credit Card</option>
         </select><br>
 
-        <button type="submit">Place Order</button>
+        <center><button type="submit" class="placeorder-btn">Place Order</button></center>
     </form>
 
 </body>

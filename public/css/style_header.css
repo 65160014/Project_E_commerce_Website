@@ -1,6 +1,12 @@
 /* Style for header.ejs */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* Header Styling */
 header {
     display: flex;
     justify-content: space-between;
@@ -9,6 +15,7 @@ header {
     background-color: #ff943c;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     min-height: 90px; /* Optional: Ensures a minimum height */
+    margin-bottom: 20px; /* Space below the header */
 }
 
 header h1 {
@@ -23,7 +30,7 @@ header h1 a {
     color: inherit;
 }
 
-header  a:hover {
+header a:hover {
     text-decoration: none;
 }
 
@@ -49,6 +56,7 @@ nav ul {
     font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 4px 0 0 4px;
+    width: 600px;
 }
 
 .search-bar button {

@@ -1,3 +1,5 @@
+/* Style for single_product.ejs */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -46,7 +48,7 @@ h2 {
     margin: 10px 0;
 }
 
-button {
+.placeorder-btn button {
     background-color: #3498db;
     color: white;
     border: none;
@@ -60,11 +62,11 @@ button {
     gap: 8px;
 }
 
-button i {
+.placeorder-btn button i {
     font-size: 1.2em;
 }
 
-button:hover {
+.placeorder-btn button:hover {
     background-color: #2980b9;
 }
 

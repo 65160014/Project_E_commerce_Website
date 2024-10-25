@@ -75,5 +75,6 @@ database
 
 #payments(สถานะการชำระเงิน อ้างอิงจาก OrderID)
     -PaymentID (AI)
+    -payment_method
     -OrderID
     -status
