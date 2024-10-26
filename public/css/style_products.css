@@ -70,14 +70,7 @@ h2 {
     margin-top: 10px;
 }
 
-.product-item button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    padding: 0;
-}
+
 
 button {
     background-color: #ff7523;
@@ -142,3 +135,25 @@ select:focus {
 option {
     padding: 10px;
 }
+
+/* Add this to the existing CSS */
+
+#cart-message {
+    display: none; /* เปิดใช้งานเมื่อสั่งให้แสดงผล */
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 1000;
+}
+
+
+#cart-message.show {
+    opacity: 1;
+}
+

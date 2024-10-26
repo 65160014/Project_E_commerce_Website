@@ -38,11 +38,30 @@ app.get('/', (req, res) => {
     let query = "SELECT * FROM products WHERE status = 'In stock'";
     db.query(query, (err, results) => {
         if (err) throw err;
-        res.render('index', { products: results });
+        res.render('index', { products: results, cart: req.session.cart || [] });
     });
 });
 
-// Route สำหรับหน้าแสดงสินค้าทั้งหมด (products.ejs) รวมถึงการค้นหาและจัดเรียง
+
+app.post('/add-to-cart', (req, res) => {
+    const productID = req.body.productID;
+    const quantity = req.body.quantity || 1;
+
+    if (!req.session.cart) {
+        req.session.cart = [];
+    }
+
+    const existingItem = req.session.cart.find(item => item.productID == productID);
+    if (!existingItem) {
+        req.session.cart.push({ productID, quantity });
+    }
+
+    res.setHeader('Content-Type', 'application/json');  // เพิ่มส่วนนี้
+    res.json({ success: true });
+});
+
+
+// Pass the cart data to the products route
 app.get('/products', (req, res) => {
     // ดึงค่าการค้นหาและการจัดเรียงจาก query string
     let search = req.query.search || '';
@@ -55,7 +74,7 @@ app.get('/products', (req, res) => {
     db.query(query, [`%${search}%`], (err, results) => {
         if (err) throw err;
         // ส่งข้อมูลสินค้า คำค้นหา และการจัดเรียงไปที่หน้า products.ejs
-        res.render('products', { products: results, search: search, sort: sortBy });
+        res.render('products', { products: results, search: search, sort: sortBy, cart: req.session.cart || [] });
     });
 });
 
@@ -70,19 +89,19 @@ app.get('/product/:id', (req, res) => {
     });
 });
 
-// Route สำหรับการเพิ่มสินค้าลงตะกร้า
-app.post('/add-to-cart', (req, res) => {
-    const productID = req.body.productID;
-    const quantity = req.body.quantity || 1;
+// // Route สำหรับการเพิ่มสินค้าลงตะกร้า
+// app.post('/add-to-cart', (req, res) => {
+//     const productID = req.body.productID;
+//     const quantity = req.body.quantity || 1;
 
-    if (!req.session.cart) {
-        req.session.cart = [];
-    }
+//     if (!req.session.cart) {
+//         req.session.cart = [];
+//     }
 
-    // เพิ่มสินค้าลงตะกร้า
-    req.session.cart.push({ productID, quantity });
-    res.redirect('/');
-});
+//     // เพิ่มสินค้าลงตะกร้า
+//     req.session.cart.push({ productID, quantity });
+//     res.redirect('/');
+// });
 
 // Route สำหรับการลบสินค้าจากตะกร้า
 app.post('/remove-from-cart', (req, res) => {

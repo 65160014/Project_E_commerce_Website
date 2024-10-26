@@ -92,3 +92,24 @@ a:hover {
     text-decoration: underline;
     color: #217dbb;
 }
+
+/* Add this to your existing CSS file */
+
+#cart-message {
+    display: none; /* เปิดใช้งานเมื่อสั่งให้แสดงผล */
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #24da4ec2;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 1000;
+}
+
+
+#cart-message.show {
+    opacity: 1;
+}
