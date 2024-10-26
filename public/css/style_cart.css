@@ -18,6 +18,19 @@ h2 {
     font-weight: 700;
 }
 
+a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #3498db;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
 /* กล่องรายการสินค้า */
 .cart-list {
     display: flex;

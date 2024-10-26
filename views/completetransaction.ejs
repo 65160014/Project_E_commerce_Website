@@ -5,24 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Complete Transaction</title>
     <link rel="stylesheet" href="/css/style_header.css">
+    <link rel="stylesheet" href="/css/style_completetransaction.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/path/to/your/custom.css">
 </head>
 <body>
     <%- include('partials/header') %>
+<div class="complete-transaction">
+    <div class="confirmation-content">
+        <h2>Order Confirmation</h2>
 
-    <h2>Order Confirmation</h2>
+        <p>Order ID: <%= order.OrderID %></p>
+        <p>Total Cost: <%= order.totalcost %> THB</p>
+        <p>Payment Method: <%= payment.payment_method === 'COD' ? 'Cash on Delivery' : 'Credit Card' %></p>
 
-    <p>Order ID: <%= order.OrderID %></p>
-    <p>Total Cost: <%= order.totalcost %> THB</p>
-    <p>Payment Method: <%= payment.status === 'Pending' ? 'Cash on Delivery' : 'Credit Card' %></p>
-
-    <% if (payment.payment_method === 'COD') { %>
-        <a href="/"><button>Back to Home</button></a>
-    <% } else { %>
-        <a href="/"><button>Back to Home</button></a>
-        <a href="#"><button>Pay Now</button></a>
-    <% } %>
-
+        <div class="buttons">
+            <a href="/"><button>Back to Home</button></a>
+            <% if (payment.payment_method !== 'COD') { %>
+                <a href="#"><button class="pay-now">Pay Now</button></a>
+            <% } %>
+        </div>
+    </div>
+</div>
 </body>
+
 </html>

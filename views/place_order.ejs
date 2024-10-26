@@ -6,46 +6,48 @@
     <title>Place Order</title>
     <link rel="stylesheet" href="/css/style_header.css">
     <link rel="stylesheet" href="/css/style_place_order.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <%- include('partials/header') %>
+    <div class="place_order">
+        <h2>Place Your Order</h2>
 
-    <h2>Place Your Order</h2>
+        <div class="item_in_cart">
+            <h3>Items in Your Cart</h3>
+            <ul>
+                <% products.forEach(product => { %>
+                    <li><%= product.ProductName %> - <%= product.product_price %> THB</li>
+                <% }); %>
+            </ul>
+        </div>
+        
+        <h3>Total: <%= total %> THB</h3>
 
-    <h3>Items in Your Cart</h3>
-    <ul>
-        <% products.forEach(product => { %>
-            <li><%= product.ProductName %> - <%= product.product_price %> THB</li>
-        <% }); %>
-    </ul>
+        <form action="/complete_order" method="post" class="delivery-form">
+            <label for="name">Full Name:</label>
+            <input type="text" name="name" required><br>
 
-    <h3>Total: <%= total %> THB</h3>
+            <label for="email">Email:</label>
+            <input type="email" name="email" required><br>
 
-    <form action="/complete_order" method="post" class="delivery-form">
-        <label for="name">Full Name:</label>
-        <input type="text" name="name" required><br>
+            <label for="city">City:</label>
+            <input type="text" name="city" required><br>
 
-        <label for="email">Email:</label>
-        <input type="email" name="email" required><br>
+            <label for="address">Address:</label>
+            <textarea name="address" required></textarea><br>
 
-        <label for="city">City:</label>
-        <input type="text" name="city" required><br>
+            <label for="phone">Phone:</label>
+            <input type="text" name="phone" required><br>
 
-        <label for="address">Address:</label>
-        <textarea name="address" required></textarea><br>
+            <label for="paymentMethod">Payment Method:</label>
+            <select name="paymentMethod">
+                <option value="COD">Cash on Delivery</option>
+                <option value="CreditCard">Credit Card</option>
+            </select><br>
 
-        <label for="phone">Phone:</label>
-        <input type="text" name="phone" required><br>
-
-        <label for="paymentMethod">Payment Method:</label>
-        <select name="paymentMethod">
-            <option value="COD">Cash on Delivery</option>
-            <option value="CreditCard">Credit Card</option>
-        </select><br>
-
-        <center><button type="submit" class="placeorder-btn">Place Order</button></center>
-    </form>
-
+            <center><button type="submit" class="placeorder-btn">Place Order</button></center>
+        </form>
+    </div>
 </body>
 </html>
